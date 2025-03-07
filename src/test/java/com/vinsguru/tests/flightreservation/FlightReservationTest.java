@@ -16,13 +16,17 @@ import org.testng.Assert;
 public class FlightReservationTest {
 
     private WebDriver driver;
-
+    private String expectedPrice;
+    private String noOfPassengers;
 
     //following parameters come from the file "flight-reservation.xml"
 
     @BeforeTest
-    public void setDriver() {
+    @Parameters({"noOfPassengers", "expectedPrice"})
 
+    public void setDriver(String noOfPassengers,String expectedPrice) {
+        this.noOfPassengers = noOfPassengers;
+        this.expectedPrice = expectedPrice;
 
         //WebDriverManager.chromiumdriver().setup();
         //this.driver = new ChromiumDriver();
@@ -35,7 +39,7 @@ public class FlightReservationTest {
     @Test
     public void RegistrationPageTest(){
         Registrationpage registrationPage = new Registrationpage(driver);
-        registrationPage.goTo("https:www.facebook.com");
+        registrationPage.goTo("https://d1uh9e7cu07ukd.cloudfront.net/selenium-docker/reservation-app/index.html");
         Assert.assertTrue(registrationPage.isAt());
         registrationPage.enterUserdetails("lex","22");
         registrationPage.enteruserCredentials("lex22@evo.com","pass@123");
@@ -54,7 +58,7 @@ public class FlightReservationTest {
     public void FlightSearchPageTest(){
         FlightsSearchPage flightSearchPage = new FlightsSearchPage(driver);
         Assert.assertTrue(flightSearchPage.isAt());
-        flightSearchPage.selectPassengers("1");
+        flightSearchPage.selectPassengers(noOfPassengers);
         flightSearchPage.searchFlights();
 
     }
@@ -71,7 +75,7 @@ public class FlightReservationTest {
     public void FlightConfirmationPageTest() {
         FlightConfirmationPage flightConfirmationPage = new FlightConfirmationPage (driver);
         Assert.assertTrue(flightConfirmationPage.isAt());
-        Assert.assertEquals(flightConfirmationPage.getPrice(),"$584 USD");
+        Assert.assertEquals(flightConfirmationPage.getPrice(),expectedPrice);
 
     }
 

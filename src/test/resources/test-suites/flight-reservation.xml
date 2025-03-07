@@ -1,9 +1,23 @@
 <suite name="flight-reservation">
     <test name="passengers-count-1">
         <parameter name="noOfPassengers" value="1"/>
-        <parameter name="expectedPrice2" value="$584 USD"/>
+        <parameter name="expectedPrice" value="$584 USD"/>
         <classes>
         <class name="com.vinsguru.tests.flightreservation.FlightReservationTest"/>
+        </classes>
+    </test>
+    <test name="passengers-count-2">
+        <parameter name="noOfPassengers" value="2"/>
+        <parameter name="expectedPrice" value="$1168 USD"/>
+        <classes>
+            <class name="com.vinsguru.tests.flightreservation.FlightReservationTest"/>
+        </classes>
+    </test>
+    <test name="passengers-count-3">
+        <parameter name="noOfPassengers" value="3"/>
+        <parameter name="expectedPrice" value="$1752 USD"/>
+        <classes>
+            <class name="com.vinsguru.tests.flightreservation.FlightReservationTest"/>
         </classes>
     </test>
 </suite>

@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 
 public class FlightConfirmationPage extends abstractPages {
 
-    private static final Logger LOG = LoggerFactory.getLogger(FlightConfirmationPage.class);
+    private static final Logger log = LoggerFactory.getLogger(FlightConfirmationPage.class);
      //document.JQuerySelectorALL
     @FindBy(css = "#flights-confirmation-section .card-body .row:nth-child(1) .col:nth-child(2)")
     private WebElement flightConfirmationElement;
@@ -34,8 +34,8 @@ public class FlightConfirmationPage extends abstractPages {
     public String getPrice(){
         String confirmation = this.flightConfirmationElement.getText();
         String price = this.totalPriceElement.getText();
-        //LOG.info("Flight confirmation# : {}", confirmation);
-        //LOG.info("Total price : {}", price);
+        log.info("Flight confirmation# : {}", confirmation);
+        log.info("Total price : {}", price);
         return price;
     }
 

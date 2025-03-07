@@ -25,13 +25,13 @@ public class Registrationpage extends abstractPages{
     @FindBy(id = "password")
     private WebElement passwordinput;
 
-    @FindBy(id = "street")
+    @FindBy(name = "street")
     private WebElement streetinput;
 
-    @FindBy(id = "city")
+    @FindBy(name = "city")
     private WebElement cityinput;
 
-    @FindBy(id = "zip")
+    @FindBy(name = "zip")
     private WebElement zipinput;
 
     @FindBy(id = "register-btn")

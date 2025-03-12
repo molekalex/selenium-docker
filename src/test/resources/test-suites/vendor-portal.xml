@@ -1,0 +1,10 @@
+<suite name="flight-reservation">
+           <test name="passengers-count-1">
+               <parameter name="user" value="sam"/>
+               <parameter name="password" value="sam"/>
+               <parameter name="searchItem" value="a"/>
+               <classes>
+               <class name="com.vinsguru.tests.vendorportal.vendorportalTest"/>
+               </classes>
+           </test>
+</suite>

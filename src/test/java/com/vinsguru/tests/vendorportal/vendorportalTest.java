@@ -2,6 +2,7 @@ package com.vinsguru.tests.vendorportal;
 
 import com.fasterxml.jackson.databind.jsontype.impl.AsExistingPropertyTypeSerializer;
 import com.vinsguru.pages.vendorportal.*;
+import com.vinsguru.tests.abstractTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,34 +13,27 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class vendorportalTest {
+public class vendorportalTest extends abstractTest {
 
-    private WebDriver driver;
     private String user;
     private String password;
     private String searchItem;
     private loginPage loginpage;
     private dashboardPage dashboardpage;
+
     @BeforeTest
     @Parameters({"user", "password", "searchItem"})
 
-    public void setDriver(String user, String password, String searchItem) {
+    public void setParameters(String user, String password, String searchItem) {
         this.user = user;
         this.password = password;
         this.searchItem = searchItem;
 
-
-        WebDriverManager.chromedriver().setup();
-        this.driver = new ChromeDriver();
-        //WebDriverManager.firefoxdriver().setup();
-        //this.driver = new FirefoxDriver();
-
+        //creating and init the class objects:
         this.loginpage = new loginPage(driver);
         this.dashboardpage = new dashboardPage(driver);
 
-
     }
-
     @Test
     public void loginPageTest() {
 
@@ -70,8 +64,7 @@ public class vendorportalTest {
         Assert.assertTrue(loginpage.isAt());
     }
 
-    @AfterTest
-    public void quitDriver(){this.driver.quit();}
+
 
 
 }

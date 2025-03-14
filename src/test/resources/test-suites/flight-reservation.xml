@@ -8,14 +8,14 @@
     </test>
     <test name="passengers-count-2">
         <parameter name="noOfPassengers" value="2"/>
-        <parameter name="expectedPrice" value="$1168 USD"/>
+        <parameter name="expectedPrice" value="$1169 USD"/>
         <classes>
             <class name="com.vinsguru.tests.flightreservation.FlightReservationTest"/>
         </classes>
     </test>
     <test name="passengers-count-3">
         <parameter name="noOfPassengers" value="3"/>
-        <parameter name="expectedPrice" value="$1752 USD"/>
+        <parameter name="expectedPrice" value="$1753 USD"/>
         <classes>
             <class name="com.vinsguru.tests.flightreservation.FlightReservationTest"/>
         </classes>

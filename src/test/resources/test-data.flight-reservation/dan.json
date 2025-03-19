@@ -1,0 +1,11 @@
+{
+  "noOfPassengers":"2",
+  "expectedPrice":"$1169 USD",
+  "firstname":"dan",
+  "lastname":"holamidani",
+  "email":"holadani@gmail.com",
+  "password":"34567",
+  "street":"carabo",
+  "city":"bucara",
+  "zip":"32457"
+}

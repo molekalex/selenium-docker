@@ -1,0 +1,11 @@
+{
+  "noOfPassengers":"3",
+  "expectedPrice":"$1753 USD",
+  "firstname":"jane",
+  "lastname":"doe",
+  "email":"jdoe@gmail.com",
+  "password":"nobody",
+  "street":"teje",
+  "city":"boog",
+  "zip":"32499"
+}

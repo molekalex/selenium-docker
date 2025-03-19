@@ -1,0 +1,20 @@
+<suite name="flight-reservation">
+    <test name="passengers-count-1">
+        <parameter name="testdataPath" value="test-data.flight-reservation/bob.json"/>
+        <classes>
+        <class name="com.vinsguru.tests.flightreservation.FlightReservationTest"/>
+        </classes>
+    </test>
+    <test name="passengers-count-2">
+        <parameter name="testdataPath" value="test-data.flight-reservation/dan.json"/>
+        <classes>
+            <class name="com.vinsguru.tests.flightreservation.FlightReservationTest"/>
+        </classes>
+    </test>
+    <test name="passengers-count-3">
+        <parameter name="testdataPath" value="test-data.flight-reservation/jane.json"/>
+        <classes>
+            <class name="com.vinsguru.tests.flightreservation.FlightReservationTest"/>
+        </classes>
+    </test>
+  </suite>

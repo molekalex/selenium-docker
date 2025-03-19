@@ -1,0 +1,11 @@
+{
+  "noOfPassengers":"1",
+  "expectedPrice":"$584 USD",
+  "firstname":"bob",
+  "lastname":"bobian",
+  "email":"bobian@gmail.com",
+  "password":"12345",
+  "street":"el palo",
+  "city":"medellin",
+  "zip":"32456"
+}

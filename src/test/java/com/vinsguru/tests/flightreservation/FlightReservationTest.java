@@ -2,12 +2,8 @@ package com.vinsguru.tests.flightreservation;
 
 import com.vinsguru.pages.flightreserve.*;
 import com.vinsguru.tests.abstractTest;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chromium.ChromiumDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterTest;
+import com.vinsguru.tests.flightreservation.model.flightreservationTestdata;
+import com.vinsguru.util.JsonUtil;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -16,8 +12,8 @@ import org.testng.Assert;
 
 public class FlightReservationTest extends abstractTest {
 
-    private String expectedPrice;
-    private String noOfPassengers;
+    private flightreservationTestdata testdata;
+
     private Registrationpage registrationPage;
     //following parameters come from the file "flight-reservation.xml"
     private ConfirmationReservationpage confirmationReservationpage;
@@ -25,11 +21,12 @@ public class FlightReservationTest extends abstractTest {
     private Selectflightpage selectflightpage;
     private FlightConfirmationPage flightConfirmationPage;
     @BeforeTest
-    @Parameters({"noOfPassengers", "expectedPrice"})
+    @Parameters("testdataPath")
 
-    public void setParameters(String noOfPassengers,String expectedPrice) {
-        this.noOfPassengers = noOfPassengers;
-        this.expectedPrice = expectedPrice;
+    public void setParameters(String testdataPath) {
+
+        this.testdata = JsonUtil.getTestData(testdataPath, flightreservationTestdata.class);
+
 
         // init the class objects:
         //this avoids repetition in @Test anotations bellow:
@@ -44,9 +41,9 @@ public class FlightReservationTest extends abstractTest {
 
         registrationPage.goTo("https://d1uh9e7cu07ukd.cloudfront.net/selenium-docker/reservation-app/index.html");
         Assert.assertTrue(registrationPage.isAt());
-        registrationPage.enterUserdetails("lex","22");
-        registrationPage.enteruserCredentials("lex22@evo.com","pass@123");
-        registrationPage.enterAddress("colo","mede","132455");
+        registrationPage.enterUserdetails(testdata.firstname(), testdata.lastname());
+        registrationPage.enteruserCredentials(testdata.email(), testdata.password());
+        registrationPage.enterAddress(testdata.street(),testdata.city(), testdata.zip());
         registrationPage.register();
 
     }
@@ -61,7 +58,7 @@ public class FlightReservationTest extends abstractTest {
     public void FlightSearchPageTest(){
 
         Assert.assertTrue(flightSearchPage.isAt());
-        flightSearchPage.selectPassengers(noOfPassengers);
+        flightSearchPage.selectPassengers(testdata.noOfPassengers());
         flightSearchPage.searchFlights();
 
     }
@@ -78,7 +75,7 @@ public class FlightReservationTest extends abstractTest {
     public void FlightConfirmationPageTest() {
 
         Assert.assertTrue(flightConfirmationPage.isAt());
-        Assert.assertEquals(flightConfirmationPage.getPrice(),expectedPrice);
+        Assert.assertEquals(flightConfirmationPage.getPrice(),testdata.expectedPrice());
 
     }
 

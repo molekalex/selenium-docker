@@ -1,10 +1,10 @@
 {
   "username": "mike",
   "password": "mike",
-  "montlyEarning": "$55.000",
-  "annualEarning": "$563.000",
+  "montlyEarning": "$55,000",
+  "annualEarning": "$563,300",
   "profitMarging": "80%",
   "availableInventory": "45",
   "searchItem":"miami",
-  "searchResultsCount": 8
+  "searchResultsCount": 10
 }

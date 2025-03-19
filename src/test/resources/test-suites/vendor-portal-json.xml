@@ -1,0 +1,20 @@
+<suite name="vendor-portal-json">
+           <test name="vendor-portal-john">
+               <parameter name="testDataPath" value="test-data/vendor-portal/john.json"/>
+               <classes>
+               <class name="com.vinsguru.tests.vendorportal.vendorportalTest"/>
+               </classes>
+           </test>
+    <test name="vendor-portal-dady">
+        <parameter name="testDataPath" value="test-data/vendor-portal/dady.json"/>
+        <classes>
+            <class name="com.vinsguru.tests.vendorportal.vendorportalTest"/>
+        </classes>
+    </test>
+    <test name="vendor-portal-mike">
+        <parameter name="testDataPath" value="test-data/vendor-portal/mike.json"/>
+        <classes>
+            <class name="com.vinsguru.tests.vendorportal.vendorportalTest"/>
+        </classes>
+    </test>
+</suite>

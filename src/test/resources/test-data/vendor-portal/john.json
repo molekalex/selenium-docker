@@ -1,8 +1,8 @@
 {
   "username": "john",
   "password": "john",
-  "montlyEarning": "$3.453",
-  "annualEarning": "$34.485",
+  "montlyEarning": "$3,453",
+  "annualEarning": "$34,485",
   "profitMarging": "-16%",
   "availableInventory": "67",
   "searchItem":"2024/01/01",

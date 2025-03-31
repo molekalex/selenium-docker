@@ -7,6 +7,7 @@ import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterTest;
@@ -35,12 +36,14 @@ public abstract class abstractTest {
         //this.driver = new FirefoxDriver();
     }
 
-    //metodo para trabajar con el archivo POM
+    //metodo para trabajar con el driver local
     private WebDriver getLocalDriver() {
-        WebDriverManager.chromedriver().setup();
-        return new ChromeDriver();
+        /*WebDriverManager.chromedriver().setup();
+        return new ChromeDriver();*/
+        WebDriverManager.firefoxdriver().setup();
+        return new FirefoxDriver();
     }
-    //
+    //metodo para trabajar con selenium grid:
     private WebDriver getRemoteDriver() throws MalformedURLException {
 
         Capabilities capabilities;

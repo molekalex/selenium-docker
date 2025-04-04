@@ -28,12 +28,12 @@ public abstract class abstractTest {
         if(Boolean.getBoolean("selenium.grid.enabled"))
         {this.driver=getRemoteDriver();}else
         {this.driver=getLocalDriver();}
+
         WebDriverManager.chromedriver().setup();
         this.driver = new ChromeDriver();
-
         //using firefox:
-        //WebDriverManager.firefoxdriver().setup();
-        //this.driver = new FirefoxDriver();
+        /*WebDriverManager.firefoxdriver().setup();
+        this.driver = new FirefoxDriver();*/
     }
 
     //metodo para trabajar con el driver local

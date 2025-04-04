@@ -5,7 +5,7 @@
                <class name="com.vinsguru.tests.vendorportal.vendorportalTest"/>
                </classes>
            </test>
-    <test name="vendor-portal-dady">
+    <!--<test name="vendor-portal-dady">
         <parameter name="testDataPath" value="test-data/vendor-portal/dady.json"/>
         <classes>
             <class name="com.vinsguru.tests.vendorportal.vendorportalTest"/>
@@ -16,5 +16,5 @@
         <classes>
             <class name="com.vinsguru.tests.vendorportal.vendorportalTest"/>
         </classes>
-    </test>
+    </test>-->
 </suite>

@@ -84,7 +84,9 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven.compiler.version}</version>
                 <configuration>
-                    <release>21</release>
+                    <!--El siguiente numero debe concidir con la version de java en el equipo que compila
+                    y configurada en el proyecto del IDLE Intellij-->
+                    <release>20</release>
                 </configuration>
             </plugin>
             <!-- To run the tests using specific parameters, change thread count, testng report output directory etc -->
@@ -95,10 +97,12 @@
                 <configuration>
                     <systemPropertyVariables>
                         <browser>firefox</browser>
-                        <selenium.grid.enabled>false</selenium.grid.enabled>
+                        <selenium.grid.enabled>true</selenium.grid.enabled>
                     </systemPropertyVariables>
                     <suiteXmlFiles>
-                        <file>test-suite.xml</file>
+                        <!--<file>test-suite.xml</file>-->
+                        <file>src/test/resources/test-suites/flight-reservation-json.xml</file>
+                        <file>src/test/resources/test-suites/vendor-portal-json.xml</file>
                     </suiteXmlFiles>
                     <threadCount>1</threadCount>
                     <reportsDirectory>target/test-output</reportsDirectory>

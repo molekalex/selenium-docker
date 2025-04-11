@@ -1,14 +1,20 @@
 package com.vinsguru.tests.vendorportal;
 
 
+import com.google.common.util.concurrent.Uninterruptibles;
 import com.vinsguru.pages.vendorportal.*;
 import com.vinsguru.tests.abstractTest;
 import com.vinsguru.tests.vendorportal.model.vendorportalTestdata;
+import com.vinsguru.util.Config;
+import com.vinsguru.util.Constants;
 import com.vinsguru.util.JsonUtil;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
+import java.time.Duration;
 
 public class vendorportalTest extends abstractTest {
 
@@ -31,7 +37,9 @@ public class vendorportalTest extends abstractTest {
     @Test
     public void loginPageTest() {
 
-        loginpage.goTo("https://d1uh9e7cu07ukd.cloudfront.net/selenium-docker/vendor-app/index.html");
+        //Ultima:
+        //loginpage.goTo("https://d1uh9e7cu07ukd.cloudfront.net/selenium-docker/vendor-app/index.html");
+        loginpage.goTo(Config.get(Constants.VENDOR_PORTAL_URL));
         loginpage.login(testdata.username(), testdata.password());
         Assert.assertTrue(loginpage.isAt());
 
@@ -58,5 +66,10 @@ public class vendorportalTest extends abstractTest {
         Assert.assertTrue(loginpage.isAt());
     }
 
+@AfterTest
+    public void sleep(){
+        //every method here will take 6 seconds:
+    Uninterruptibles.sleepUninterruptibly(Duration.ofSeconds(5));
+}
 
 }

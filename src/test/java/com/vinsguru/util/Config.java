@@ -14,6 +14,7 @@ public class Config {
     private static final String DEFAULT_PROPERTIES = "config/default.properties";
     private static Properties properties;
     public static void initialized() {
+
         //load default properties:
         properties = loadProperties();
 
@@ -24,12 +25,13 @@ public class Config {
             }
         }
 
-
         //print for debugging needs
         log.info("Test properties");
+        log.info("---------------");
         for (String key : properties.stringPropertyNames()) {
             log.info("{}={}",key, properties.getProperty(key));
         }
+        log.info("---------------");
     }
 
     public static String get(String key){
@@ -40,7 +42,8 @@ public class Config {
     public static Properties loadProperties() {
         Properties properties = new Properties();
         try (InputStream stream = ResourceLoader.getResource(DEFAULT_PROPERTIES)) {
-        } catch (Exception e) { }
+            properties.load(stream);
+        } catch (Exception e) { log.error("unable to read the property file {}",DEFAULT_PROPERTIES,e); }
         return properties;
     }
 

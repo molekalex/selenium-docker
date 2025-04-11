@@ -3,6 +3,8 @@ package com.vinsguru.tests.flightreservation;
 import com.vinsguru.pages.flightreserve.*;
 import com.vinsguru.tests.abstractTest;
 import com.vinsguru.tests.flightreservation.model.flightreservationTestdata;
+import com.vinsguru.util.Config;
+import com.vinsguru.util.Constants;
 import com.vinsguru.util.JsonUtil;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
@@ -38,8 +40,9 @@ public class FlightReservationTest extends abstractTest {
     }
     @Test
     public void RegistrationPageTest(){
-
-        registrationPage.goTo("https://d1uh9e7cu07ukd.cloudfront.net/selenium-docker/reservation-app/index.html");
+         //ultima
+        //registrationPage.goTo("https://d1uh9e7cu07ukd.cloudfront.net/selenium-docker/reservation-app/index.html");
+        registrationPage.goTo(Config.get(Constants.FLIGHT_RESERVATION_URL));
         Assert.assertTrue(registrationPage.isAt());
         registrationPage.enterUserdetails(testdata.firstname(), testdata.lastname());
         registrationPage.enteruserCredentials(testdata.email(), testdata.password());

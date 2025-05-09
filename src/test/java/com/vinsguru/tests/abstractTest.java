@@ -10,6 +10,7 @@ import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
@@ -56,17 +57,18 @@ public abstract class abstractTest {
         return new ChromeDriver();*/
         WebDriverManager.firefoxdriver().setup();
         return new FirefoxDriver();
+        /*WebDriverManager.edgedriver().setup();
+        return new EdgeDriver();*/
     }
     //metodo para trabajar con selenium grid:
     private WebDriver getRemoteDriver() throws MalformedURLException {
 
-
-        //Capabilities capabilities = new ChromeOptions();
         Capabilities capabilities = new EdgeOptions();
         //matches the constants values in the default.properties and the POM file
         if(Constants.FIREFOX.equalsIgnoreCase(Config.get(Constants.BROWSER))){
             capabilities = new FirefoxOptions();
-        }
+        }else if(Constants.CHROME.equalsIgnoreCase(Config.get(Constants.BROWSER))){
+            capabilities  = new ChromeOptions();}
           //ultima:
          //previous code replace following:
         //if(System.getProperty("browser").equalsIgnoreCase("chrome"))

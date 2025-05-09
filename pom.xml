@@ -96,7 +96,7 @@
                 <version>${maven.surefire.version}</version>
                 <configuration>
                     <systemPropertyVariables>
-                        <browser>firefox</browser>
+                        <browser>chrome</browser>
                         <selenium.grid.enabled>true</selenium.grid.enabled>
                     </systemPropertyVariables>
                     <suiteXmlFiles>
@@ -134,13 +134,19 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>${maven.jar.version}</version>
                 <configuration>
-                    <outputDirectory>${package.directory}</outputDirectory>
+                    <!--coloca los jars en el directorio requerido: target/docker-resources
+                     o target/docker-resources/libs-->
+                    <outputDirectory>${package.directory}/libs</outputDirectory>
                 </configuration>
                 <executions>
                     <execution>
                         <goals>
                             <goal>test-jar</goal>
                         </goals>
+                        <configuration>
+                            <!--solo copia los archivos .class:-->
+                            <includes>**/*.class</includes>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>

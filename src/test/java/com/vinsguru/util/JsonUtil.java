@@ -13,7 +13,7 @@ public class JsonUtil {
     //El siguiente metodo retorna el objeto con los datos cargados desde el archivo JSON
     //utiliza la clase ResourceLoader que permite leer los archivos json
 
-    //pasamos un tipo generico <T> segun el archivo
+    //pasamos un tipo generico <T> segun el formato del archivo compilado .class de java.
     public static <T> T getTestData(String path, Class<T>type) {
         try (InputStream stream = ResourceLoader.getResource(path)) {
             return mapper.readValue(stream,type);

@@ -1,0 +1,22 @@
+
+#from the following image:
+FROM bellsoft/liberica-openjdk-alpine:20.0.1
+
+#install Apps curl, jq: (this tools are aimed to monitor if hub is up, not really used here)
+RUN apk add curl jq 
+
+#workspace
+WORKDIR /home/selenium-docker
+
+#add the required files:
+ADD target/docker-resources ./
+
+#enviroment variables
+#BROWSER
+#HUB_HOST
+#TEST_SUITE
+#THREAD_COUNT
+
+#run the tests:
+ENTRYPOINT java -Dselenium.grid.enabled=true -Dselenium.grid.host=${HOST} -Dbrowser=${BROWSER} -cp "libs/*" org.testng.TestNG -threadcount=${THREADCOUNT} test-suites/${TEST_SUITE}
+

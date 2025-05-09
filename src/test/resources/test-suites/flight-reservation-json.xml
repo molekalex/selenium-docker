@@ -1,4 +1,4 @@
-<suite name="flight-reservation">
+<suite name="flight-reservation" parallel = "tests" thread-count="3">
     <test name="passengers-count-1">
         <parameter name="testdataPath" value="test-data.flight-reservation/bob.json"/>
         <classes>

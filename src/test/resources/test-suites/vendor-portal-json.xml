@@ -1,4 +1,4 @@
-<suite name="vendor-portal-json">
+<suite name="vendor-portal-json" parallel = "tests" thread-count="3">
            <test name="vendor-portal-john">
                <parameter name="testDataPath" value="test-data/vendor-portal/john.json"/>
                <classes>

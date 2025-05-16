@@ -12,7 +12,7 @@ echo "building the last version of files from the IDLE(intelliJ)"
 
 stage('2 Build the image'){
 steps{
-bat "docker build -t=boloyon/selenium2 ."
+bat "docker build -t=boloyong/seleniumJenk ."
 echo "creating the test image in docker"
 
 }
@@ -20,7 +20,7 @@ echo "creating the test image in docker"
 
 stage('3 Push the image'){
 steps{
-bat "docker push boloyon/selenium2"
+bat "docker push boloyong/seleniumJenk"
 echo "pushing the test image to dockerHub..."
 
 }

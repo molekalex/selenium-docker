@@ -28,3 +28,5 @@ echo "pushing the test image to dockerHub..."
 
 }
 
+}
+

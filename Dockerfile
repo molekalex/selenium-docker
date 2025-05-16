@@ -1,16 +1,27 @@
-#no entrypoint, to execute the test from here is neccesary to run the container in interactive mode and 
-#execute the "java -cp..."
+ #this Dockerfile create an image to run directly from the docker-compose.yaml along with the
+#hub, and browser images. Require to the runner.sh file:
 
 #from the following image:
 FROM bellsoft/liberica-openjdk-alpine:20.0.1
 
+#install Apps curl, jq:
+RUN apk add curl jq 
 #workspace
 WORKDIR /home/selenium-docker
 
 #add the required files:
 ADD target/docker-resources ./
+#add the file runner.sh to the new image
+ADD runner.sh runner.sh
 
-#command to mount volume from terminal, for pasting reports:
-#${PWD}/result:/home/selenium-docker/test-output boloyon/selenium
-#command to run container within running the tests:
-#docker run -e BROWSER=edge -e HUB_HOST=192.168.1.38 -e TEST_SUITE=vendor-portal-json.xml -e THREAD_COUNT=3 boloyon/selenium
+# Fix for windows
+RUN dos2unix runner.sh
+
+#enviroment variables
+#BROWSER
+#HOST
+#TEST_SUITE
+#THREAD_COUNT
+
+#run the tests:
+ENTRYPOINT sh runner.sh

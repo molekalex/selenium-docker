@@ -1,4 +1,4 @@
- #this Dockerfile create an image to run directly from the docker-compose.yaml along with the
+#this Dockerfile create an image to run directly from the docker-compose.yaml along with the
 #hub, and browser images. Require to the runner.sh file:
 
 #from the following image:
@@ -25,3 +25,5 @@ RUN dos2unix runner.sh
 
 #run the tests:
 ENTRYPOINT sh runner.sh
+#check alternate way: ENTRYPOINT ["/bin/sh", "runner.sh"] 
+#to avoid warnings in the pipeline output
